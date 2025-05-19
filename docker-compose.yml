@@ -1,0 +1,36 @@
+# version: "3.8"
+
+# services:
+#   app:
+#     build: .
+#     ports:
+#       - "3000:3000"
+#     environment:
+#       - NODE_ENV=production
+#     env_file:
+#       - .env.production
+
+
+version: '3.8'
+services:
+  postgres:
+    image: postgres:15
+    restart: always
+    environment:
+      POSTGRES_USER: youruser
+      POSTGRES_PASSWORD: yourpass
+      POSTGRES_DB: yourdb
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      DATABASE_URL: postgres://postgres:123@localhost:5432/k9win_myr
+    depends_on:
+      - postgres
+
+volumes:
+  pgdata:
