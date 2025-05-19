@@ -1,4 +1,5 @@
 'use client'
+import Navbar from "@/components/Navbar";
 
 import { useEffect, useState } from 'react'
 
@@ -86,6 +87,7 @@ export default function CategoryForm() {
 
   return (
     <div className="max-w-2xl mx-auto mt-10 p-4">
+      <Navbar/>
       <h1 className="text-2xl font-bold mb-4">All Categories</h1>
       {message && <p className="text-green-600 mb-3">{message}</p>}
 

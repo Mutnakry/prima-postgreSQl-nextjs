@@ -2,6 +2,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import Navbar from "@/components/Navbar";
 
 interface Product {
   id: string
@@ -98,6 +99,7 @@ export default function ProductPage() {
 
   return (
     <div className="max-w-6xl mx-auto p-6">
+      <Navbar/>
       <h1 className="text-2xl font-bold mb-4">Product Management</h1>
       {message && <p className="text-green-600 mb-3">{message}</p>}
 
